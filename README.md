@@ -1,4 +1,4 @@
-# phase-2-project
+## phase-2-project
 
 Project Description -
 
@@ -19,3 +19,14 @@ Example Data db.json -
 example of data for Exercises - should match Exercise API
 
 example of date for Meals - should match Meals API
+
+
+Stretch Goals - 
+
+- set 3 daily initial exercises based on day of week.  First 3 input fields hold this as a placeholder.   User can add exercises.   
+- set meals initially based on day.  This is done through the mealPlanningForm and will persist.   Initially all options set to false.    
+- only offer meals/snacks based on time of day while using app
+- let previous daily meals/exercises persist so the user can simply choose to re-select last weeks meal/exercises.   
+
+
+Kanban Board - We should do this in Trello.

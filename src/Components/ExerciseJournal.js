@@ -78,7 +78,7 @@ function ExerciseJournal() {
     };
 
     return (
-        <div style={{ maxWidth: '750px' }}>
+        <div style={{ maxWidth: '875px' }}>
             <h5>Exercise Journal</h5>
             <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>

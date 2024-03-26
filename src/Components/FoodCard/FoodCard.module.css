@@ -1,0 +1,18 @@
+.foodCardContainer{
+    display: inline-block;
+    background-color: rgb(208, 251, 208);
+    
+    padding: 1em;
+    margin: 1em;
+    border-radius: 12px;
+}
+.foodCardContainer h3{
+    text-align: center;
+}
+.foodCardContainer img{
+    
+}
+.foodCardContainer > p{
+    margin:.2em 0;
+}
+

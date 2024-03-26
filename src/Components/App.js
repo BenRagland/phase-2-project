@@ -6,7 +6,7 @@ import ExerciseJournal from './ExerciseJournal';
 import ExerciseList from './ExerciseList';
 import MealFilterForm from './MealFilterForm';
 import MealList from './MealList';
-
+import FoodCard from './FoodCard/FoodCard'
 
 const App = () => {
   // State for exercise filters
@@ -42,7 +42,8 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header/>   
+
+      {/* <Header/>   
       <DietJournal/>
       <ExerciseJournal/>
       <ExerciseFilterForm
@@ -50,7 +51,7 @@ const App = () => {
         selectedEquipment={exerciseFilters.Equipment}
         selectedIntensity={exerciseFilters.Intensity_Level}
         onFilterChange={handleExerciseFilterChange}
-      />
+      /> */}
       {/* Pass exercise filters to ExerciseList */}
       <ExerciseList
         selectedMuscle={exerciseFilters.Muscles}
@@ -60,6 +61,8 @@ const App = () => {
       <MealFilterForm onFilterChange={handleFilterChange} />
       <MealList mealFilters={mealFilters} />
      
+
+     <FoodCard />
     </div>
   );
 }

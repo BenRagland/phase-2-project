@@ -1,74 +1,50 @@
 import React, { useState, useEffect } from 'react';
 
-function ExerciseJournal() {
+function ExerciseJournal({ filteredExerciseList }) {
     const [entries, setEntries] = useState(() => {
         const storedEntries = localStorage.getItem('exerciseEntries');
-        return storedEntries ? JSON.parse(storedEntries) : Array.from({ length: 20 }, () => ({ exercise: '', sets: '', reps: '', ampm: '', favorite: false, submitted: false }));
+        return storedEntries ? JSON.parse(storedEntries) : Array.from({ length: 20 }, () => ({ exercise: '', sets: '', reps: '', ampm: 'AM', favorite: false, submitted: false }));
     });
-    const [exerciseList, setExerciseList] = useState([]);
 
-    useEffect(() => {
-        fetchExerciseList();
-    }, []);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         localStorage.setItem('exerciseEntries', JSON.stringify(entries));
     }, [entries]);
 
-    useEffect(() => {
-        const currentDate = new Date();
-        const endOfDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
-        const millisecondsUntilEndOfDay = endOfDay - currentDate;
-        const timeoutId = setTimeout(() => {
-            const updatedEntries = entries.map(entry => ({
-                ...entry,
-                submitted: false // Reset submitted status at the end of the day
-            }));
-            setEntries(updatedEntries);
-        }, millisecondsUntilEndOfDay);
-        
-        return () => clearTimeout(timeoutId);
-    }, [entries]); // Add entries to the dependency array to ensure this effect runs whenever entries change
-
-    const fetchExerciseList = async () => {
-        try {
-            const response = await fetch('https://work-out-api1.p.rapidapi.com/search', {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': '53b8ecad31mshd3ead90d923490bp17852ajsnb678a1515e7c',
-                    'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch exercise data');
-            }
-
-            const data = await response.json();
-            setExerciseList(data.exercises);
-        } catch (error) {
-            console.error('Error fetching exercise data:', error.message);
-        }
-    };
-
     const handleEntryChange = (index, event) => {
         const { name, value } = event.target;
         const newEntries = [...entries];
-        newEntries[index] = { ...newEntries[index], [name]: value };
+        newEntries[index] = { ...newEntries[index], [name]: value };   ///there is something wrong here
         setEntries(newEntries);
     };
 
-    const filterExerciseList = (inputValue) => {
-        return exerciseList.filter(exercise => exercise.workout.toLowerCase().includes(inputValue.toLowerCase()));
-    };
-
-    const handleSubmitEntry = (index) => {
-        // Mark the entry as submitted
-        const newEntries = [...entries];
-        newEntries[index].submitted = true;
-        setEntries(newEntries);
-        // Other submission logic
-        console.log("Submitting entry at index:", index);
+    const handleSubmitEntry = async (index) => {
+        const entry = entries[index];
+        const currentDate = new Date(); // Get current date and time
+        entry.timestamp = currentDate.toISOString(); // Add timestamp to entry
+        
+        try {
+            const response = await fetch('http://localhost:3000/exerciseJournalEntries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(entry)
+            });
+    
+            if (!response.ok) {
+                throw new Error('Failed to submit entry');
+            }
+    
+            // Mark the entry as submitted if the POST request was successful
+            const newEntries = [...entries];
+            newEntries[index].submitted = true;
+            setEntries(newEntries);
+            console.log('Entry submitted successfully:', entry);
+        } catch (error) {
+            console.error('Error submitting entry:', error.message);
+        }
     };
     
     const handleRemoveEntry = (index) => {
@@ -77,8 +53,27 @@ function ExerciseJournal() {
         setEntries(newEntries);
     };
 
+    const handleSearchChange = (event) => {
+        const searchTerm = event.target.value;
+        setSearchTerm(searchTerm); // Update searchTerm state
+        filterExercises(searchTerm); // Call filterExercises with searchTerm
+    };
+    
+    const filterExercises = (searchTerm) => {
+        // Check if exerciseList is defined before filtering
+        if (exerciseList) {
+            const filtered = filteredExerciseList.filter(exercise => {
+                // Check if any property contains the search term
+                return Object.values(exercise).some(value =>
+                    typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            });
+            setFilteredExercises(filtered);
+        }
+    };
+
     return (
-        <div style={{ maxWidth: '750px' }}>
+        <div style={{ maxWidth: '850px' }}>
             <h5>Exercise Journal</h5>
             <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>
@@ -100,14 +95,14 @@ function ExerciseJournal() {
                                     <input
                                         type="text"
                                         name="exercise"
-                                        value={entry.exercise}
-                                        onChange={(event) => handleEntryChange(index, event)}
+                                        value={searchTerm} 
+                                        onChange={handleSearchChange}
                                         list="exerciseList"
                                     />
                                     <datalist id="exerciseList">
-                                        {exerciseList && filterExerciseList(entry.exercise).map((exercise, i) => (
-                                            <option key={i} value={exercise.workout} />
-                                        ))}
+                                    {filteredExerciseList && filteredExerciseList.map((exercise, i) => ( // Add a check here
+                                    <option key={i} value={exercise.workOut} />
+                                    ))}
                                     </datalist>
                                 </td>
                                 
@@ -115,7 +110,7 @@ function ExerciseJournal() {
                                     <input
                                         type="number"
                                         name="weight"
-                                        value={entry.sets}
+                                        value={entry.weight}
                                         onChange={(event) => handleEntryChange(index, event)}
                                     />
                                 </td>    

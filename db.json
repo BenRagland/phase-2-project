@@ -1,14 +1,202 @@
 {
-    "dietJournalEntries": [
-
-
-
-
-
-
-
-        
-    ],
-    "exerciseJournalEntries": []
- 
-  }
+  "dietJournalEntries": [],
+  "exerciseJournalEntries": [
+    {
+      "id": "07a3",
+      "exercise": "v",
+      "sets": "3",
+      "reps": "5",
+      "ampm": "",
+      "favorite": false,
+      "submitted": false,
+      "weight": "2"
+    },
+    {
+      "id": "ee78",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "PM",
+      "favorite": false,
+      "submitted": false
+    },
+    {
+      "id": "0576",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "",
+      "favorite": false,
+      "submitted": false
+    },
+    {
+      "id": "7351",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "",
+      "favorite": false,
+      "submitted": false
+    },
+    {
+      "id": "deec",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "AM",
+      "favorite": false,
+      "submitted": false
+    },
+    {
+      "id": "981c",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "AM",
+      "favorite": false,
+      "submitted": false,
+      "weight": "",
+      "timestamp": "2024-03-26T16:37:23.709Z"
+    },
+    {
+      "id": "b095",
+      "exercise": "",
+      "sets": "",
+      "reps": "2",
+      "ampm": "",
+      "favorite": false,
+      "submitted": false,
+      "timestamp": "2024-03-26T22:04:11.322Z"
+    },
+    {
+      "id": "2850",
+      "exercise": "",
+      "sets": "",
+      "reps": "",
+      "ampm": "",
+      "favorite": false,
+      "submitted": false,
+      "weight": "",
+      "timestamp": "2024-03-27T17:18:42.731Z"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "1d57",
+      "Muscles": "Biceps",
+      "WorkOut": "Barbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Barbell",
+      "Explaination": "Barbell Curl: Stand with feet shoulder-width apart, hold a barbell with an underhand grip and curl it towards your shoulders.",
+      "Long Explanation": "This classic bicep-building exercise involves standing with feet shoulder-width apart, gripping a barbell with an underhand grip. With elbows close to the torso, curl the barbell towards the shoulders while keeping the upper arms stationary. This motion targets the bicep muscles, including both the long and short head, providing development in muscle mass and arm strength. The focus is on smooth, controlled movements, exhaling as you lift the barbell and inhaling on the return. For beginners, it's crucial to start with a lighter weight to perfect the form before progressing.",
+      "Video": "https://www.youtube.com/results?search_query=Barbell+Curl"
+    },
+    {
+      "id": "3c1f",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "3da6",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "0f33",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "2671",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "1ef0",
+      "Muscles": "Biceps",
+      "WorkOut": "Barbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Barbell",
+      "Explaination": "Barbell Curl: Stand with feet shoulder-width apart, hold a barbell with an underhand grip and curl it towards your shoulders.",
+      "Long Explanation": "This classic bicep-building exercise involves standing with feet shoulder-width apart, gripping a barbell with an underhand grip. With elbows close to the torso, curl the barbell towards the shoulders while keeping the upper arms stationary. This motion targets the bicep muscles, including both the long and short head, providing development in muscle mass and arm strength. The focus is on smooth, controlled movements, exhaling as you lift the barbell and inhaling on the return. For beginners, it's crucial to start with a lighter weight to perfect the form before progressing.",
+      "Video": "https://www.youtube.com/results?search_query=Barbell+Curl"
+    },
+    {
+      "id": "bb31",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "e9d3",
+      "Muscles": "Biceps",
+      "WorkOut": "Dumbbell Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Dumbbell Curl: Curl dumbbells alternately or simultaneously while keeping your elbows close to your torso.",
+      "Long Explanation": "The Dumbbell Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Dumbbell+Curl"
+    },
+    {
+      "id": "5ff7",
+      "Muscles": "Biceps",
+      "WorkOut": "Hammer Curl",
+      "Intensity_Level": "Beginner",
+      "Beginner Sets": "3 Sets with 12 to 15 reps",
+      "Intermediate Sets": "4 Sets with 8 to 12 reps",
+      "Expert Sets": "5 Sets with 3 to 10 reps",
+      "Equipment": "Dumbbells",
+      "Explaination": "Hammer Curl: Perform dumbbell curls with palms facing each other, targeting the brachialis muscle.",
+      "Long Explanation": "The Hammer Curl is a weight training exercise targeting the Biceps. It involves using Dumbbells, focusing on the form and technique to effectively engage the muscles. Ideal for strength building and muscle definition, it's important to maintain controlled movements throughout.",
+      "Video": "https://www.youtube.com/results?search_query=Hammer+Curl"
+    }
+  ]
+}

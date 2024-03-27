@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import MealCard from './MealCard';
 import MealFilterForm from './MealFilterForm';
-
+import FoodTile from './FoodTile';
+//Added FootTile component, which generates in MealFilterForm JSX
 function MealList() {
     const [meals, setMeals] = useState(Array.from({ length: 20 }, () => ({ id: Math.random(), name: 'Random Meal', isFavorite: false })));
     const [displayedMeals, setDisplayedMeals] = useState([...meals]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterCriteria, setFilterCriteria] = useState('name');
+    const foodData = [{name:"fakeFood"}, {name:"fakeFood2"}]
 
     const generateRandomMeals = () => {
         const newMeals = Array.from({ length: 20 }, () => ({ id: Math.random(), name: 'Random Meal', isFavorite: false }));
@@ -40,7 +42,9 @@ function MealList() {
     const showTodaysMeals = () => {
         filterMeals(); // Placeholder for today's meals logic
     };
-
+    const generateFoodTile = () => {
+        return foodData.map( (data) => {return <FoodTile props={data}></FoodTile>} )
+    }
     return (
         <div style={{ maxWidth: '900px' }}>
             <div>

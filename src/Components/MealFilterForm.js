@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FoodTile from './FoodTile';
 
 function MealFilterForm() {
     const APP_ID = "5218fd09";
@@ -40,12 +41,8 @@ function MealFilterForm() {
                     params.push(`${label}=${value}`)
                 }
 
-                // https://api.edamam.com/api/recipes/v2?type=any&beta=true&q=chicken&app_id=5218fd09&app_key=6f026eb8600d0aae8b2a2639aa0e6ec5&diet=high-protein&health=gluten-free&cuisineType=American&mealType=Breakfast&field=label&field=dietLabels&field=healthLabels&field=cuisineType&field=mealType 
-
                 const fetchUrl = `https://api.edamam.com/api/recipes/v2?${params.join('&')}`;
         
-                // const response = await fetch(fetchUrl);
-
                 fetch(fetchUrl)
                 .then( res => {
                         return res.json()
@@ -54,16 +51,6 @@ function MealFilterForm() {
                     setRecipes(data.hits);
                     console.log("Fetched recipes:", data.hits);
                 })
-        
-                // if (!response.ok) {
-                //     throw new Error('Could not fetch data');
-                // }
-        
-                // const data = await response.json();
-                // setRecipes(data.hits);
-                // setSearchTerm(""); //reset search bar after submit
-        
-                // console.log("Fetched recipes:", data.hits);
         
             } catch (error) {
                 console.error('Fetch error:', error);
@@ -77,8 +64,12 @@ function MealFilterForm() {
         e.preventDefault();
         console.log("Filters submitted:", { calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth });
     };
+    const generateFoodTile = () => {
+        return recipes.map( (data) => {return <FoodTile props={data}></FoodTile>} )
+    }
 
     return (
+        <div>
         <form onSubmit={handleSubmit}>
             <div style={{ maxWidth: '900px' }}>
                 <h4>Diet Options</h4>
@@ -135,6 +126,8 @@ function MealFilterForm() {
                 </div>
             </div>
         </form>
+        {generateFoodTile()}
+        </div>
     );
 }
 

@@ -57,6 +57,7 @@ const App = () => {
         selectedEquipment={exerciseFilters.Equipment}
         selectedIntensity={exerciseFilters.Intensity_Level}
       />
+      WHERE AM I?????
       <MealFilterForm onFilterChange={handleFilterChange} />
       <MealList mealFilters={mealFilters} />
      

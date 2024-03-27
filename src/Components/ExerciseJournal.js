@@ -157,3 +157,4 @@ function ExerciseJournal({ filteredExerciseList }) {
 }
 
 export default ExerciseJournal;
+

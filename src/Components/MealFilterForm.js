@@ -18,6 +18,7 @@ function MealFilterForm() {
     // const cuisineTypes = ['Asian', 'American', 'Caribbean', 'Central Europe', 'Chinese', 'Eastern Europe', 'French', 'Indian', 'Italian', 'Japanese', 'Kosher', 'Mediterranean', 'Mexican', 'Middle Eastern', 'South American', 'South East Asian'];
     const diets = ['balanced', 'high-fiber', 'high-protein', 'low-carb', 'low-fat', 'low-sodium'];
     const healthOptions = ['dairy-free', 'egg-free', 'gluten-free', 'keto-friendly', 'low-sugar', 'peanut-free', 'vegan', 'vegetarian'];
+    console.log(recipes, "line 21 recipes")
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -64,9 +65,9 @@ function MealFilterForm() {
         e.preventDefault();
         console.log("Filters submitted:", { calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth });
     };
-    const generateFoodTile = () => {
-        return recipes.map( (data) => {return <FoodTile props={data}></FoodTile>} )
-    }
+    // // const generateFoodTile = () => {
+    // //     return recipes.map( (data) => {return <FoodTile props={data}></FoodTile>} )
+    // }
 
     return (
         <div>
@@ -126,7 +127,13 @@ function MealFilterForm() {
                 </div>
             </div>
         </form>
-        {generateFoodTile()}
+        {/* {generateFoodTile} */}
+        {
+        recipes.length > 0 ? recipes.map((recipe) => <FoodTile />) : ""
+        
+    
+        }
+        
         </div>
     );
 }

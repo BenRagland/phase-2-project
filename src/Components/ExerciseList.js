@@ -185,14 +185,6 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         return shuffledArray;
     };
 
-    const handleTodaysItems = () => {
-        // Implement the logic to get today's exercises
-        // For example, you can fetch today's exercises from an API or use some local logic
-        // Then, update the filtered exercises state accordingly
-    };
-
-    console.log('Exercise List:', exerciseList);
-    console.log('Filtered Exercises:', filteredExercises);
 
     return (
         <div style={{ maxWidth: '900px'}}>

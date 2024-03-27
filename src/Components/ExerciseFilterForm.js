@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ExerciseFilterForm() {
+function ExerciseFilterForm({ onSubmit }) {
     const [selectedMuscle, setSelectedMuscle] = useState('');
     const [selectedEquipment, setSelectedEquipment] = useState('');
     const [selectedIntensity, setSelectedIntensity] = useState('');
@@ -23,10 +23,11 @@ function ExerciseFilterForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        //filter options will persist  so they can be used for searchability
-        console.log("Filters submitted:")
-
+        onSubmit({
+            selectedMuscle,
+            selectedEquipment,
+            selectedIntensity
+        });
     };
 
     return (
@@ -58,7 +59,7 @@ function ExerciseFilterForm() {
                         <option key={index} value={level} />
                     ))}
                 </datalist>
-                <button type="submit">Apply Filters</button>
+                <button type="submit" onSubmit={onSubmit}>Apply Filters</button>
             </div>
             </div>
             </div>

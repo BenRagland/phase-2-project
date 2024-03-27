@@ -18,3 +18,10 @@ header h3 {
     text-align: center;
     padding: 0.5rem 0;
 }
+
+.card {
+  /* Set the width as desired */
+  padding: 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc; /* Add border for visual separation */
+  border-radius: 5px; /* Optionally, add border radius for rounded corners */
+}

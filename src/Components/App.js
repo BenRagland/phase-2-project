@@ -42,27 +42,25 @@ const App = () => {
 
   return (
     <div className="app">
-
-      {/* <Header/>   
+      <Header/>   
       <DietJournal/>
-      <ExerciseJournal/>
-      <ExerciseFilterForm
-        selectedMuscle={exerciseFilters.Muscles}
-        selectedEquipment={exerciseFilters.Equipment}
-        selectedIntensity={exerciseFilters.Intensity_Level}
-        onFilterChange={handleExerciseFilterChange}
-      /> */}
+      <ExerciseJournal
+      onFilterChange={handleExerciseFilterChange}
+      />
+      
+      
       {/* Pass exercise filters to ExerciseList */}
       <ExerciseList
-        selectedMuscle={exerciseFilters.Muscles}
-        selectedEquipment={exerciseFilters.Equipment}
-        selectedIntensity={exerciseFilters.Intensity_Level}
-      />
+      selectedMuscle={exerciseFilters.Muscles}
+      selectedEquipment={exerciseFilters.Equipment}
+      selectedIntensity={exerciseFilters.Intensity_Level}
+      exerciseFilters={exerciseFilters}
+      setExerciseFilters={setExerciseFilters}
+      handleExerciseFilterChange={handleExerciseFilterChange} // Pass the function as a prop
+/>
       <MealFilterForm onFilterChange={handleFilterChange} />
       <MealList mealFilters={mealFilters} />
-     
-
-     <FoodCard />
+      <FoodCard>
     </div>
   );
 }

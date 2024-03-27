@@ -8,7 +8,7 @@ function ExerciseFilterForm({ onSubmit }) {
     const muscles = ['Biceps', 'Triceps', 'Chest', 'Back', 'Legs', 'Abs', 'Stretching', 'Warm Up', 'Lats', 'Hamstring', 'Calves', 'Quadriceps', 'Trapezius', 'Shoulders', 'Glutes'];
     const equipment = ['Barbell', 'Dumbbells', 'EZ-bar', 'Kettlebell', 'Bench', 'Chest press machine'];
     const intensityLevels = ['Beginner', 'Intermediate', 'Expert'];
-
+    //sets the values from the filter form
     const handleMuscleChange = (e) => {
         setSelectedMuscle(e.target.value);
     };
@@ -20,7 +20,7 @@ function ExerciseFilterForm({ onSubmit }) {
     const handleIntensityChange = (e) => {
         setSelectedIntensity(e.target.value);
     };
-
+    //submits form values to the exercise list
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit({
@@ -68,3 +68,4 @@ function ExerciseFilterForm({ onSubmit }) {
                                 }
 
 export default ExerciseFilterForm;
+

@@ -118,6 +118,7 @@ function ExerciseJournal() {
                                     value={entry.exercise}
                                     onChange={handleEntryChange}
                                     list="workoutNames"
+                                    placeholder="Enter exercise"
                                 />
                                 <datalist id="workoutNames">
                                     {filteredWorkoutNames.map((name, index) => (

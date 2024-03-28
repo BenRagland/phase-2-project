@@ -7,6 +7,8 @@ import ExerciseList from './ExerciseList/ExerciseList';
 import MealFilterForm from './MealFilterForm/MealFilterForm';
 import MealList from './MealList/MealList';
 import styles from './App.module.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+
 
 const App = () => {
   // State for exercise filters
@@ -41,6 +43,7 @@ const App = () => {
   
 
   return (
+    <Router>
     <div className={styles.appContainer}>
       <Header/>   
 
@@ -66,6 +69,7 @@ const App = () => {
 
       
     </div>
+    </Router>
   );
 }
 

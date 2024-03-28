@@ -53,36 +53,52 @@ function ExerciseList({ exerciseFilters, setExerciseFilters }) {
     const toggleFavorite = async (exercise) => {
         try {
             const isFavorite = favorites.some((fav) => fav.WorkOut === exercise.WorkOut);
+            
             if (isFavorite) {
                 const updatedFavorites = favorites.filter((fav) => fav.WorkOut !== exercise.WorkOut);
                 setFavorites(updatedFavorites);
-                const response = await fetch('http://localhost:3000/favorites', {
+    
+                // Delete the favorite from the database using its unique identifier
+                const favoriteToDelete = favorites.find((fav) => fav.WorkOut === exercise.WorkOut);
+                const response = await fetch(`http://localhost:3000/favorites/${favoriteToDelete.id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(exercise),
                 });
+    
                 if (!response.ok) {
-                    throw new Error('Failed to update favorites on the server');
+                    throw new Error('Failed to delete favorite from the server');
                 }
             } else {
-                const updatedFavorites = [...favorites, exercise];
+                // Generate a unique identifier for the favorite
+                const favoriteId = generateUniqueId();
+                const favoriteWithId = { ...exercise, id: favoriteId };
+    
+                const updatedFavorites = [...favorites, favoriteWithId];
                 setFavorites(updatedFavorites);
+    
+                // Add the favorite to the database
                 const response = await fetch('http://localhost:3000/favorites', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(exercise),
+                    body: JSON.stringify(favoriteWithId),
                 });
+    
                 if (!response.ok) {
-                    throw new Error('Failed to update favorites on the server');
+                    throw new Error('Failed to add favorite to the server');
                 }
             }
         } catch (error) {
             console.error('Error toggling favorite:', error.message);
         }
+    };
+    
+    const generateUniqueId = () => {
+        // Generate a random string as a unique identifier
+        return Math.random().toString(36).substr(2, 9);
     };
 
     const handleFavorites = () => {

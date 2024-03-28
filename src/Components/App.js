@@ -6,7 +6,6 @@ import ExerciseJournal from './ExerciseJournal';
 import ExerciseList from './ExerciseList';
 import MealFilterForm from './MealFilterForm';
 import MealList from './MealList';
-import FoodCard from './FoodCard/FoodCard'
 
 const App = () => {
   // State for exercise filters
@@ -60,7 +59,6 @@ const App = () => {
 />
       <MealFilterForm onFilterChange={handleFilterChange} />
       <MealList mealFilters={mealFilters} />
-      <FoodCard/>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FoodTile from './FoodTile';
+import FoodCard from './FoodCard/FoodCard';
 
 function MealFilterForm() {
     const APP_ID = "5218fd09";
@@ -140,7 +140,7 @@ function MealFilterForm() {
         </form>
         {/* {generateFoodTile} */}
         {
-        recipes.length > 0 ? recipes.map((recipe) => <FoodTile />) : ""
+        recipes.length > 0 ? recipes.map((recipe) => <FoodCard recipeObj= {recipe}/>) : ""
         
     
         }

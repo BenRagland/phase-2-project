@@ -3,7 +3,7 @@ import styles from "./FoodCard.module.css"
 
 
 const FoodCard = ({foodObj}) => {
-  console.log(foodObj)
+  console.log(foodObj, "food card")
   return (
     <div className={styles.foodCardContainer}>
         <h3> Food Name </h3>

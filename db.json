@@ -1,5 +1,16 @@
 {
-  "dietJournalEntries": [],
+  "dietJournalEntries": [
+    {
+      "meal": "french fries",
+      "calories": 400, 
+      "category": "Lunch", 
+      "favorite": false,
+      "period": "AM",
+      "submitted": false,
+      "dateStamp": "3/28/2024" 
+
+    }
+  ],
   "exerciseJournalEntries": [
     
     {

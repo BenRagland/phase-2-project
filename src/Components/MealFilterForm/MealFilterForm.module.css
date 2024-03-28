@@ -16,7 +16,7 @@
     margin-bottom: 2em;
     border-radius: 8px;
     justify-content: space-between;
-    border:solid 2px blue; 
+    box-shadow: 3px 3px 6px -1px rgb(255, 226, 226);
     width: 75vw;
 }
 

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import Header from "./Header/Header";
-import ExerciseFilterForm from "./ExerciseFilterForm/ExerciseFilterForm";
 import DietJournal from "./DietJournal/DietJournal";
 import ExerciseJournal from './ExerciseJournal/ExerciseJournal';
 import ExerciseList from './ExerciseList/ExerciseList';
 import MealFilterForm from './MealFilterForm/MealFilterForm';
 import MealList from './MealList/MealList';
+import ExerciseDetailPage from './ExerciseDetailPage/ExerciseDetailPage'; // Import ExerciseDetailPage
 import styles from './App.module.css'
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
   // State for exercise filters
@@ -26,7 +25,6 @@ const App = () => {
     }));
   };
 
-
   const [mealFilters, setMealFilters] = useState({
     calorieMin: '',
     calorieMax: '',
@@ -40,35 +38,31 @@ const App = () => {
   const handleFilterChange = (newFilters) => {
     setMealFilters(newFilters);
   };
-  
 
   return (
     <Router>
-    <div className={styles.appContainer}>
-      <Header/>   
-
-      <div className={styles.journalsContainer}>
-        <DietJournal/>
-        <ExerciseJournal
-        onFilterChange={handleExerciseFilterChange}
+      <div className={styles.appContainer}>
+        <Header/>
+        <div className={styles.journalsContainer}>
+          <DietJournal/>
+          <ExerciseJournal onFilterChange={handleExerciseFilterChange} />
+        </div>
+        {/* Pass exercise filters to ExerciseList */}
+        <ExerciseList
+          selectedMuscle={exerciseFilters.Muscles}
+          selectedEquipment={exerciseFilters.Equipment}
+          selectedIntensity={exerciseFilters.Intensity_Level}
+          exerciseFilters={exerciseFilters}
+          setExerciseFilters={setExerciseFilters}
+          handleExerciseFilterChange={handleExerciseFilterChange}
         />
+        <MealFilterForm onFilterChange={handleFilterChange} />
+        <MealList />
+        {/* Define route for ExerciseDetailPage */}
+        <Switch>
+          <Route path="/exercise/:workoutName" component={ExerciseDetailPage} />
+        </Switch>
       </div>
-      
-      {/*  Pass exercise filters to ExerciseList */}
-
-      <ExerciseList
-      selectedMuscle={exerciseFilters.Muscles}
-      selectedEquipment={exerciseFilters.Equipment}
-      selectedIntensity={exerciseFilters.Intensity_Level}
-      exerciseFilters={exerciseFilters}
-      setExerciseFilters={setExerciseFilters}
-      handleExerciseFilterChange={handleExerciseFilterChange} // Pass the function as a prop
-      />
-      <MealFilterForm onFilterChange={handleFilterChange} />
-      <MealList  /> 
-
-      
-    </div>
     </Router>
   );
 }

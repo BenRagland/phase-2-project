@@ -31,9 +31,7 @@ function ExerciseCard({ exercise, isFavorite, onToggleFavorite }) {
                     &#9733;
                 </button>
                 {/* Link to the detailed information page */}
-                <Link to={`/exercises/${encodeURIComponent(exercise.WorkOut)}`}>
-                    <h4>{exercise.WorkOut}</h4>
-                </Link>
+                <Link to={`/exercise/${exercise.WorkOut}`}>{exercise.WorkOut}</Link>
                 <p style={{ lineHeight: '.5'}}>Beg: {exercise['Beginner Sets']}</p>
                 <p style={{ lineHeight: '.5'}}>Int: {exercise['Intermediate Sets']}</p>
                 <p style={{ lineHeight: '.5'}}>Exp: {exercise['Expert Sets']}</p>

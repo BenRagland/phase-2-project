@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './Header.module.css'
 
 function Header() {
   // Get today's date in the format YYYY-MM-DD
@@ -6,10 +7,14 @@ function Header() {
 
   return (
     <header>
-      <h1>Diet and Exercise Journal</h1>
-      <div>
-        <label htmlFor="dateInput">Date:</label>
+      <div className={styles.titleContainer } >
+        <h1 className={styles.title}>Diet Pal</h1>
+        <h2 className={styles.subTitle}>Diet and Exercise Journal</h2>
+      </div>
+      <div className={styles.dateContainer}>
+        <label className={styles.dateLabel} htmlFor="dateInput">Date:</label>
         <input
+          className={styles.dateInput}
           type="date"
           id="dateInput"
           name="date"

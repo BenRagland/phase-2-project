@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+.appContainer{
+    font-family: "Inter", sans-serif;
+    /* max-width:100vw; */
+    padding: 0 2.5em;
+    border-radius: 17px;
+    border:solid 2px green;
+
+}
+.journalsContainer{
+    display:flex;
+    
+    
+    border:solid 2px red;
+    gap: 1em;
+}
+
+/* All Page Input Boxes */
+input{
+    border-radius: 5px;
+    padding:.1em .2em;
+    border:solid 1px rgb(41, 41, 41);
+
+}

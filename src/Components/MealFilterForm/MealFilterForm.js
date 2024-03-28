@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FoodCard from '../FoodCard/FoodCard';
+import styles from "./MealFilterForm.module.css"
 
 function MealFilterForm() {
     const APP_ID = "5218fd09";
@@ -83,19 +84,19 @@ function MealFilterForm() {
     return (
         <div>
         <form onSubmit={handleSubmit}>
-            <div style={{ maxWidth: '900px' }}>
-                <h4>Diet Options</h4>
-                <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+            <div className={styles.mealFiltersContainer}>
+                <h4 className={styles.sectionTitle} >Diet Options</h4>
+                <div className={styles.mealFilters}>
                     <div>
-                        <label>
-                            Min Cal:
+                        <label style={{marginRight:"1em"}}>
+                            <span> Min Cal: </span>
                             <input type="number" style={{ width: '70px' }} value={calorieMin} onChange={e => setCalorieMin(e.target.value)} />
                         </label>
-                        <label>
+                        <label style={{marginRight:"1em"}}>
                             Max Cal:
                             <input type="number" style={{ width: '100px' }} value={calorieMax} onChange={e => setCalorieMax(e.target.value)} />
                         </label>
-                        <label>
+                        <label style={{marginRight:"1em"}}>
                             Meal Type:
                             <input list="mealTypes" value={selectedMealType} onChange={e => setSelectedMealType(e.target.value)} />
                             <datalist id="mealTypes">
@@ -104,7 +105,7 @@ function MealFilterForm() {
                                 ))}
                             </datalist>
                         </label>
-                        <label>
+                        <label style={{marginRight:"1em"}}>
                             Cuisine Type:
                             <input list="cuisineTypes" value={selectedCuisineType} onChange={e => setSelectedCuisineType(e.target.value)} />
                             <datalist id="cuisineTypes">
@@ -115,7 +116,7 @@ function MealFilterForm() {
                         </label>
                     </div>
                     <div>
-                        <label>
+                        <label style={{marginRight:"1em"}}>
                             Diet:
                             <input list="diets" value={selectedDiet} onChange={e => setSelectedDiet(e.target.value)} />
                             <datalist id="diets">
@@ -124,7 +125,7 @@ function MealFilterForm() {
                                 ))}
                             </datalist>
                         </label>
-                        <label>
+                        <label style={{marginRight:"1em"}}>
                             Health Preferences:
                             <input list="healthOptions" value={selectedHealth} onChange={e => setSelectedHealth(e.target.value)} />
                             <datalist id="healthOptions">

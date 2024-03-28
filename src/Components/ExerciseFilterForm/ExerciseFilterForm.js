@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from "./ExerciseFilterForm.module.css"
 
 function ExerciseFilterForm({ onSubmit }) {
     const [selectedMuscle, setSelectedMuscle] = useState('');
@@ -32,10 +33,10 @@ function ExerciseFilterForm({ onSubmit }) {
 
     return (
         <form onSubmit={handleSubmit}>
-        <div style={{ maxWidth: '900px' }}>
-            <h4>Exercise Options</h4>
-            <div style={{ maxHeight: '100px', overflowY: 'auto' }}>
-            <div>
+        <div className={styles.exerciseOptionsContainer}>
+            <h4 className={styles.sectionTitle}>Exercise Options</h4>
+            <div >
+            <div className={styles.exerciseFilters}>
                 <label>Muscle:</label>
                 <input list="muscles" value={selectedMuscle} onChange={handleMuscleChange} />
                 <datalist id="muscles">

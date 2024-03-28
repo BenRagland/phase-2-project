@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Header from "./Header";
-import ExerciseFilterForm from "./ExerciseFilterForm";
-import DietJournal from "./DietJournal";
-import ExerciseJournal from './ExerciseJournal';
-import ExerciseList from './ExerciseList';
-import MealFilterForm from './MealFilterForm';
-import MealList from './MealList';
+import Header from "./Header/Header";
+import ExerciseFilterForm from "./ExerciseFilterForm/ExerciseFilterForm";
+import DietJournal from "./DietJournal/DietJournal";
+import ExerciseJournal from './ExerciseJournal/ExerciseJournal';
+import ExerciseList from './ExerciseList/ExerciseList';
+import MealFilterForm from './MealFilterForm/MealFilterForm';
+import MealList from './MealList/MealList';
+import styles from './App.module.css'
 
 const App = () => {
   // State for exercise filters
@@ -40,15 +41,18 @@ const App = () => {
   
 
   return (
-    <div className="app">
+    <div className={styles.appContainer}>
       <Header/>   
-      <DietJournal/>
-      <ExerciseJournal
-      onFilterChange={handleExerciseFilterChange}
-      />
+
+      <div className={styles.journalsContainer}>
+        <DietJournal/>
+        <ExerciseJournal
+        onFilterChange={handleExerciseFilterChange}
+        />
+      </div>
       
-      
-      {/* Pass exercise filters to ExerciseList */}
+      {/*  Pass exercise filters to ExerciseList */}
+
       <ExerciseList
       selectedMuscle={exerciseFilters.Muscles}
       selectedEquipment={exerciseFilters.Equipment}
@@ -56,9 +60,11 @@ const App = () => {
       exerciseFilters={exerciseFilters}
       setExerciseFilters={setExerciseFilters}
       handleExerciseFilterChange={handleExerciseFilterChange} // Pass the function as a prop
-/>
+      />
       <MealFilterForm onFilterChange={handleFilterChange} />
-      <MealList mealFilters={mealFilters} />
+      <MealList  /> 
+
+      
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from "./Dietjournal.module.css"
 
 function DietJournal() {
     const [entries, setEntries] = useState(() => {
@@ -96,9 +97,8 @@ function DietJournal() {
 
     return (
         <div style={{ maxWidth: '750px' }}>
-            <h5>Diet Journal</h5>
-            <div style={{ marginBottom: '10px' }}>
-            </div>
+            <h5 className={styles.title}> Diet Journal</h5> 
+        
             <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>
                     <thead>

@@ -1,0 +1,39 @@
+
+
+.titleContainer{
+    font-weight: 400;
+    font-size: 2.5rem;
+    letter-spacing: 2.5px;
+    margin: 0;
+    padding:0;
+}
+.title{
+    margin:0;
+    font-weight:700;
+}
+.subTitle{
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 1em 0;
+
+}
+
+/* Date Styling */
+.dateContainer{
+    padding: .5em;
+    font-size: 1.3rem;
+    
+}
+.dateLabel{
+    margin-right:1em;
+    
+}
+.dateInput{
+    border-radius: 9px;
+    border: solid 1px rgb(253, 253, 253);
+    padding:.5em;
+
+    font-size:1rem;
+    box-shadow: 3px 3px 6px -1px rgb(71, 71, 71);
+
+}

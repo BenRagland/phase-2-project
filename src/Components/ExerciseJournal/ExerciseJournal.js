@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from "./ExerciseJournal.module.css"
 
 function ExerciseJournal({ filteredExerciseList }) {
     const [entries, setEntries] = useState(() => {
@@ -73,8 +74,8 @@ function ExerciseJournal({ filteredExerciseList }) {
     };
 
     return (
-        <div style={{ maxWidth: '850px' }}>
-            <h5>Exercise Journal</h5>
+        <div style={{ maxWidth: '45%' }}>
+            <h5 className={styles.title}>Exercise Journal</h5>
             <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>
                     <thead>
@@ -82,7 +83,7 @@ function ExerciseJournal({ filteredExerciseList }) {
                             <th style={{ padding: '5px' }}>Exercise</th>
                             <th style={{ padding: '5px', maxWidth: '25px' }}>Weight</th>
                             <th style={{ padding: '5px', maxWidth: '25px' }}>Sets</th>
-                            <th style={{ padding: '5px', width: '25px'  }}>Reps</th>
+                            <th style={{ padding: '5px', width: '15px'  }}>Reps</th>
                             <th style={{ padding: '5px' }}></th>
                             <th style={{ padding: '5px' }}></th>
                             <th style={{ padding: '5px' }}>     </th>

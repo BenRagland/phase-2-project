@@ -1,0 +1,23 @@
+.mealFiltersContainer{
+    min-width:75vw;
+}
+.sectionTitle{
+    font-size:1.5rem;
+    margin:.5em 0;
+    font-weight:400;
+    
+}
+
+.mealFilters{
+    display:flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    justify-content: space-between;
+    border:solid 2px blue; 
+    width: 75vw;
+}
+
+

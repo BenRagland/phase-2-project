@@ -2,8 +2,35 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./Components/App";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import ExerciseDetailPage from './Components/ExerciseDetailPage/ExerciseDetailPage'; // Import ExerciseDetailPage
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import FoodProduct from './Components/FoodProduct/FoodProduct';
 
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App/>
+    }, 
+    {
+      path: "/FoodProduct",
+      element: <FoodProduct/>
+    },
+    {
+        path: "/ExerciseDetailPage",
+        element: <ExerciseDetailPage/>
+      },
+  ])
+  
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<RouterProvider router={router} />);
 
-
-ReactDOM.render(<App />, document.getElementById("root"));
+createRoot(root).render(
+  <Router>
+    <App />
+    <Switch>
+          <Route path="/exercise/:workoutName" component={ExerciseDetailPage} />
+    </Switch>
+  </Router>
+);

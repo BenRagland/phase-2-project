@@ -29,4 +29,4 @@ const FoodCard = ({recipeObj}) => {
   )
 }
 
-export default FoodCard
+export default FoodCard;

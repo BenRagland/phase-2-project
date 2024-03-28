@@ -5,9 +5,13 @@ import ExerciseJournal from './ExerciseJournal/ExerciseJournal';
 import ExerciseList from './ExerciseList/ExerciseList';
 import MealFilterForm from './MealFilterForm/MealFilterForm';
 import MealList from './MealList/MealList';
+import styles from './App.module.css';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import FoodProduct from './FoodProduct/FoodProduct';
 import ExerciseDetailPage from './ExerciseDetailPage/ExerciseDetailPage'; // Import ExerciseDetailPage
-import styles from './App.module.css'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+
 
 const App = () => {
   // State for exercise filters
@@ -16,6 +20,27 @@ const App = () => {
     Equipment: '',
     Intensity_Level: ''
   });
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <App/>
+    }, 
+    {
+      path: "/FoodProduct",
+      element: <FoodProduct/>
+    },
+    {
+      path: "/MealFilterForm",
+      element: <MealFilterForm/>
+    },
+    {
+        path: "/ExerciseDetailPage",
+        element: <ExerciseDetailPage/>
+      },
+  ])
+
+
 
   // Handler for updating exercise filters
   const handleExerciseFilterChange = (filterName, value) => {
@@ -40,7 +65,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    
       <div className={styles.appContainer}>
         <Header/>
         <div className={styles.journalsContainer}>
@@ -59,11 +84,10 @@ const App = () => {
         <MealFilterForm onFilterChange={handleFilterChange} />
         <MealList />
         {/* Define route for ExerciseDetailPage */}
-        <Switch>
-          <Route path="/exercise/:workoutName" component={ExerciseDetailPage} />
-        </Switch>
+        
       </div>
-    </Router>
+      
+    
   );
 }
 

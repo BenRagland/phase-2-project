@@ -67,6 +67,14 @@ function MealFilterForm() {
         fetchRecipes();
         e.preventDefault();
         console.log("Filters submitted:", { calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth });
+        setSearchTerm('')
+        setCalorieMin('')
+        setCalorieMax('') 
+        setSelectedMealType('')   
+        setSelectedCuisineType('')    
+        setSelectedDiet('')    
+        setSelectedHealth('')
+        //clear all input states
     };
     // // const generateFoodTile = () => {
     // //     return recipes.map( (data) => {return <FoodTile props={data}></FoodTile>} )

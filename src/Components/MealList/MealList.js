@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import MealCard from './MealCard';
-import MealFilterForm from './MealFilterForm';
-import FoodCard from "./FoodCard/FoodCard"
+import MealCard from '../MealCard/MealCard';
+import MealFilterForm from '../MealFilterForm';
+import FoodCard from "../FoodCard/FoodCard"
 
 //Added FootTile component, which generates in MealFilterForm JSX
 function MealList() {

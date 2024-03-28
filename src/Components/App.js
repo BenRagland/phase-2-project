@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Header from "./Header";
-import ExerciseFilterForm from "./ExerciseFilterForm";
-import DietJournal from "./DietJournal";
-import ExerciseJournal from './ExerciseJournal';
-import ExerciseList from './ExerciseList';
+import Header from "./Header/Header";
+import ExerciseFilterForm from "./ExerciseFilterForm/ExerciseFilterForm";
+import DietJournal from "./DietJournal/DietJournal";
+import ExerciseJournal from './ExerciseJournal/ExerciseJournal';
+import ExerciseList from './ExerciseList/ExerciseList';
 import MealFilterForm from './MealFilterForm';
-import MealList from './MealList';
+import MealList from './MealList/MealList';
 
 const App = () => {
   // State for exercise filters

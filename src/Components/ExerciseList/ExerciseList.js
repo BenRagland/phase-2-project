@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ExerciseCard from './ExerciseCard';
-import ExerciseFilterForm from './ExerciseFilterForm';
+import ExerciseCard from '../ExerciseCard/ExerciseCard';
+import ExerciseFilterForm from '../ExerciseFilterForm/ExerciseFilterForm';
 
 function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
     const [exerciseList, setExerciseList] = useState([]);

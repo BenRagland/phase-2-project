@@ -25,7 +25,7 @@ function Popup({ exerciseEntries, dietEntries, onClose }) {
                     <th>Weight</th>
                     <th>Sets</th>
                     <th>Reps</th>
-                    <th>AM/PM</th>
+                    <th>Time</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@ function Popup({ exerciseEntries, dietEntries, onClose }) {
                       <td>{entry.weight}</td>
                       <td>{entry.sets}</td>
                       <td>{entry.reps}</td>
-                      <td>{entry.ampm}</td>
+                      <td>{entry.timestamp.slice(11, 16)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -51,8 +51,8 @@ function Popup({ exerciseEntries, dietEntries, onClose }) {
                 <thead>
                   <tr>
                     <th>Meal</th>
-                    <th>Food</th>
                     <th>Calories</th>
+                    <th>Category</th>
                     <th>Time</th>
                   </tr>
                 </thead>
@@ -60,14 +60,14 @@ function Popup({ exerciseEntries, dietEntries, onClose }) {
                   {dietEntries.map((entry, index) => (
                     <tr key={index}>
                       <td>{entry.meal}</td>
-                      <td>{entry.food}</td>
                       <td>{entry.calories}</td>
-                      <td>{entry.time}</td>
+                      <td>{entry.category}</td>
+                      <td>{entry.timestamp.slice(11, 16)}</td>
                     </tr>
                   ))}
                   <tr>
-                    <td colSpan="2"><strong>Total Calories</strong></td>
-                    <td colSpan="2">{calculateTotalCalories()}</td>
+                    <td colSpan="3"><strong>Total Calories</strong></td>
+                    <td>{calculateTotalCalories()}</td>
                   </tr>
                 </tbody>
               </table>

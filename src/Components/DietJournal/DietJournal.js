@@ -17,8 +17,32 @@ function DietJournal() {
         });
     };
 
-    const handleSubmitEntry = () => {
-        setTodaysEntries([...todaysEntries, mealFormState]);
+    const handleSubmitEntry = async () => {
+        const currentDate = new Date().toISOString();
+        const newEntry = { ...mealFormState, dateStamp: new Date().toLocaleDateString(), timestamp: currentDate };
+
+        // Submit entry to both Todays Meals and dietJournalEntries
+        try {
+            // Submit to Todays Meals
+            setTodaysEntries([...todaysEntries, newEntry]);
+
+            // Submit to dietJournalEntries
+            const response = await fetch('http://localhost:3000/dietJournalEntries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newEntry)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to submit entry to dietJournalEntries');
+            }
+        } catch (error) {
+            console.error('Error submitting entry:', error.message);
+        }
+
+        // Reset entry fields
         setMealFormState({ meal: "", calories: "", category: "", submitted: false });
     };
 
@@ -34,7 +58,7 @@ function DietJournal() {
 
     const fetchTodaysEntries = async () => {
         try {
-            const response = await fetch('http://localhost:3001/dietJournalEntries');
+            const response = await fetch('http://localhost:3000/dietJournalEntries');
             if (!response.ok) {
                 throw new Error('Failed to fetch daily meal entries');
             }
@@ -109,6 +133,7 @@ function DietJournal() {
                                     <th>Meal</th>
                                     <th>Calories</th>
                                     <th>Category</th>
+                                    <th>Time Submitted</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -118,6 +143,7 @@ function DietJournal() {
                                         <td>{entry.meal}</td>
                                         <td>{entry.calories}</td>
                                         <td>{entry.category}</td>
+                                        <td>{new Date(entry.timestamp).toLocaleTimeString()}</td>
                                         <td>
                                             <button onClick={() => handleDeleteEntry(index)}>X</button>
                                         </td>

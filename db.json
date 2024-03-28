@@ -1,5 +1,42 @@
 {
-  "dietJournalEntries": [],
+  "dietJournalEntries": [
+    {
+      "id": "9b0a",
+      "meal": "sfsf",
+      "calories": "100",
+      "category": "Breakfast",
+      "submitted": false,
+      "dateStamp": "3/27/2024",
+      "timestamp": "2024-03-27T19:15:28.102Z"
+    },
+    {
+      "id": "0d41",
+      "meal": "",
+      "calories": "",
+      "category": "",
+      "submitted": false,
+      "dateStamp": "3/28/2024",
+      "timestamp": "2024-03-28T19:16:09.573Z"
+    },
+    {
+      "id": "5135",
+      "meal": "",
+      "calories": "",
+      "category": "",
+      "submitted": false,
+      "dateStamp": "3/28/2024",
+      "timestamp": "2024-03-28T19:16:10.351Z"
+    },
+    {
+      "id": "5169",
+      "meal": "",
+      "calories": "",
+      "category": "",
+      "submitted": false,
+      "dateStamp": "3/28/2024",
+      "timestamp": "2024-03-28T19:16:11.135Z"
+    }
+  ],
   "exerciseJournalEntries": [
     {
       "id": "07a3",
@@ -117,6 +154,15 @@
       "reps": "4",
       "submitted": false,
       "timestamp": "2024-03-28T19:02:20.149Z"
+    },
+    {
+      "id": "6af5",
+      "exercise": "",
+      "weight": "",
+      "sets": "",
+      "reps": "",
+      "submitted": false,
+      "timestamp": "2024-03-28T19:04:47.214Z"
     }
   ],
   "favorites": []

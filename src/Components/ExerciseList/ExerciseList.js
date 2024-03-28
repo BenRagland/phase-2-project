@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ExerciseCard from '../ExerciseCard/ExerciseCard';
 import ExerciseFilterForm from '../ExerciseFilterForm/ExerciseFilterForm';
 
-function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
+function ExerciseList({ exerciseFilters, setExerciseFilters }) {
     const [exerciseList, setExerciseList] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredExercises, setFilteredExercises] = useState([]);
@@ -11,8 +11,8 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
     useEffect(() => {
         fetchExerciseList();
         fetchFavorites();
-    }, []); // Empty dependency array ensures this effect runs only once after initial render
-    
+    }, []);
+
     const fetchExerciseList = async () => {
         const url = 'https://work-out-api1.p.rapidapi.com/search';
         const options = {
@@ -31,42 +31,12 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
             
             const data = await response.json();
             setExerciseList(data);
-            setFilteredExercises(data); // Set filtered exercises initially to all exercises
+            setFilteredExercises(data);
         } catch (error) {
             console.error('Error fetching exercise data:', error.message);
         }
     };
 
-  
-    const fetchExercisesWithFilters = async (filters) => {
-        const { selectedMuscle, selectedEquipment, selectedIntensity } = filters;
-    
-        const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${selectedMuscle}&Equipment=${selectedEquipment}&Intensity_Level=${selectedIntensity}`;
-        // Set up the request headers
-        const headers = {
-            'X-RapidAPI-Key': 'ada19aed84mshe7a269ed4737e51p108edcjsn0b3063e0b099',
-            'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
-        };
-    
-        try {
-            // Make the fetch request
-            const response = await fetch(url, { method: 'GET', headers });
-    
-            // Check if the response is successful
-            if (!response.ok) {
-                throw new Error('Failed to fetch filtered exercise data');
-            }
-    
-            // Parse the JSON response
-            const data = await response.json();
-    
-            // Update the filtered exercises state with the returned data
-            setFilteredExercises(data);
-        } catch (error) {
-            console.error('Error fetching filtered exercise data:', error.message);
-        }
-    };
-    
     const fetchFavorites = async () => {
         try {
             const response = await fetch('http://localhost:3000/favorites');
@@ -74,22 +44,18 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
                 throw new Error('Failed to fetch favorites');
             }
             const data = await response.json();
-            // Assuming each favorite has an 'id' property, set the favorites array directly
             setFavorites(data);
         } catch (error) {
             console.error('Error fetching favorites:', error.message);
         }
     };
-    
+
     const toggleFavorite = async (exercise) => {
         try {
             const isFavorite = favorites.some((fav) => fav.WorkOut === exercise.WorkOut);
             if (isFavorite) {
-                // Remove exercise from favorites
                 const updatedFavorites = favorites.filter((fav) => fav.WorkOut !== exercise.WorkOut);
                 setFavorites(updatedFavorites);
-    
-                // Remove exercise from server favorites
                 const response = await fetch('http://localhost:3000/favorites', {
                     method: 'DELETE',
                     headers: {
@@ -101,11 +67,8 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
                     throw new Error('Failed to update favorites on the server');
                 }
             } else {
-                // Add exercise to favorites
                 const updatedFavorites = [...favorites, exercise];
                 setFavorites(updatedFavorites);
-    
-                // Add exercise to server favorites
                 const response = await fetch('http://localhost:3000/favorites', {
                     method: 'POST',
                     headers: {
@@ -123,21 +86,15 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
     };
 
     const handleFavorites = () => {
-    const favoriteExercises = exerciseList.filter(exercise => {
-        // Check if the exercise is in the favorites list
-        return favorites.some(favorite => favorite.WorkOut === exercise.WorkOut);
-    });
-    setFilteredExercises(favoriteExercises);
-};
+        const favoriteExercises = exerciseList.filter(exercise => {
+            return favorites.some(favorite => favorite.WorkOut === exercise.WorkOut);
+        });
+        setFilteredExercises(favoriteExercises);
+    };
 
     const handleRandomExercises = () => {
-        // Shuffle the exercise list
         const shuffledExercises = shuffleArray(exerciseList);
-    
-        // Get a subset of shuffled exercises (e.g., first 10 exercises)
         const subsetExercises = shuffledExercises.slice(0, 10);
-    
-        // Set filtered exercises to the subset
         setFilteredExercises(subsetExercises);
     };
 
@@ -146,23 +103,7 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         filterExercises(event.target.value);
     };
 
-    const filterExercises = (searchTerm) => {
-        // Check if exerciseList is defined before filtering.  use filter logic based exercise
-        if (exerciseList) {
-            const filtered = exerciseList.filter(exercise => {
-                // Check if any property contains the search term
-                return Object.values(exercise).some(value =>
-                    typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-            });
-            setFilteredExercises(filtered);
-        }
-    };
-    const handleTodaysItems = () => {
-        console.log("handleTodaysItems function")
-    }
     const handleSubmit = (selectedFilters) => {
-        // Handle form submission
         setExerciseFilters({
             Muscles: selectedFilters.selectedMuscle,
             Equipment: selectedFilters.selectedEquipment,
@@ -171,8 +112,36 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         fetchExercisesWithFilters(selectedFilters);
     };
 
+    const filterExercises = (searchTerm) => {
+        if (exerciseList) {
+            const filtered = exerciseList.filter(exercise => {
+                return Object.values(exercise).some(value =>
+                    typeof value === 'string' && value.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            });
+            setFilteredExercises(filtered);
+        }
+    };
 
-    // Function to shuffle array
+    const fetchExercisesWithFilters = async (filters) => {
+        const { selectedMuscle, selectedEquipment, selectedIntensity } = filters;
+        const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${selectedMuscle}&Equipment=${selectedEquipment}&Intensity_Level=${selectedIntensity}`;
+        const headers = {
+            'X-RapidAPI-Key': 'ada19aed84mshe7a269ed4737e51p108edcjsn0b3063e0b099',
+            'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
+        };
+        try {
+            const response = await fetch(url, { method: 'GET', headers });
+            if (!response.ok) {
+                throw new Error('Failed to fetch filtered exercise data');
+            }
+            const data = await response.json();
+            setFilteredExercises(data);
+        } catch (error) {
+            console.error('Error fetching filtered exercise data:', error.message);
+        }
+    };
+
     const shuffleArray = (array) => {
         if (!Array.isArray(array) || array.length === 0) {
             console.error('Array is not valid or empty');
@@ -187,16 +156,15 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         return shuffledArray;
     };
 
-
     return (
         <div style={{ maxWidth: '1360px'}}>
             <div>
-            <ExerciseFilterForm
+                <ExerciseFilterForm
                     selectedMuscle={exerciseFilters.Muscles}
                     selectedEquipment={exerciseFilters.Equipment}
                     selectedIntensity={exerciseFilters.Intensity_Level}
                     onSubmit={handleSubmit}
-                    />
+                />
                 <p>
                     <input 
                         type="text" 
@@ -222,7 +190,6 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
                     />
                 ))}
             </div>
-            
         </div>
     );
 }

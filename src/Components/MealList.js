@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import MealCard from './MealCard';
 import MealFilterForm from './MealFilterForm';
-import FoodTile from './FoodTile';
+import FoodCard from "./FoodCard/FoodCard"
+
 //Added FootTile component, which generates in MealFilterForm JSX
 function MealList() {
     const [meals, setMeals] = useState(Array.from({ length: 20 }, () => ({ id: Math.random(), name: 'Random Meal', isFavorite: false })));
-    const [displayedMeals, setDisplayedMeals] = useState([...meals]);
+    // const [displayedMeals, setDisplayedMeals] = useState([...meals]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterCriteria, setFilterCriteria] = useState('name');
     const foodData = [{name:"fakeFood"}, {name:"fakeFood2"}]
 
-    const generateRandomMeals = () => {
-        const newMeals = Array.from({ length: 20 }, () => ({ id: Math.random(), name: 'Random Meal', isFavorite: false }));
-        setMeals(newMeals);
-        setDisplayedMeals(newMeals);
-    };
+    // const generateRandomMeals = () => {
+    //     const newMeals = Array.from({ length: 20 }, () => ({ id: Math.random(), name: 'Random Meal', isFavorite: false }));
+    //     setMeals(newMeals);
+    //     setDisplayedMeals(newMeals);
+    // };
 
     const filterMeals = () => {
         const filtered = meals.filter(meal => {
@@ -42,12 +43,12 @@ function MealList() {
     const showTodaysMeals = () => {
         filterMeals(); // Placeholder for today's meals logic
     };
-    const generateFoodTile = () => {
-        return foodData.map( (data) => {return <FoodTile props={data}></FoodTile>} )
-    }
+
     return (
         <div style={{ maxWidth: '900px' }}>
-            <div>
+            {/* Favorites and Find Random Meal Search  */}
+            
+            {/* <div>
               <p>  <input
                     type="text"
                     value={searchTerm}
@@ -60,12 +61,12 @@ function MealList() {
                 <button onClick={showTodaysMeals}>Today's Meals</button>
                 <button onClick={generateRandomMeals}>Random Meals</button>
                 </p>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'nowrap', overflowX: 'auto', maxWidth: '100%', maxHeight: '400px' }}>
-                {displayedMeals.map(meal => (
-                    <MealCard key={meal.id} meal={meal} />
-                ))}
-            </div>
+            </div> */}
+            {/* <div style={{ display: 'flex', flexWrap: 'nowrap', overflowX: 'auto', maxWidth: '100%', maxHeight: '400px' }}>
+                {
+                    displayedMeals.map( (food => <FoodCard key={food.id} foodObj={food} />))
+                }
+            </div> */}
         </div>
     );
 }

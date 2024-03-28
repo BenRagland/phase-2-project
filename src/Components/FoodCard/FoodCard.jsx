@@ -2,7 +2,8 @@ import React from 'react'
 import styles from "./FoodCard.module.css"
 
 
-const FoodCard = () => {
+const FoodCard = ({foodObj}) => {
+  console.log(foodObj)
   return (
     <div className={styles.foodCardContainer}>
         <h3> Food Name </h3>

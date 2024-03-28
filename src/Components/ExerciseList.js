@@ -158,7 +158,9 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
             setFilteredExercises(filtered);
         }
     };
-
+    const handleTodaysItems = () => {
+        console.log("handleTodaysItems function")
+    }
     const handleSubmit = (selectedFilters) => {
         // Handle form submission
         setExerciseFilters({

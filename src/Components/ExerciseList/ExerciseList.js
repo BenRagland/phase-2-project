@@ -18,7 +18,7 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '53b8ecad31mshd3ead90d923490bp17852ajsnb678a1515e7c',
+                'X-RapidAPI-Key': 'ada19aed84mshe7a269ed4737e51p108edcjsn0b3063e0b099',
                 'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
             }
         };
@@ -44,7 +44,7 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
         const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${selectedMuscle}&Equipment=${selectedEquipment}&Intensity_Level=${selectedIntensity}`;
         // Set up the request headers
         const headers = {
-            'X-RapidAPI-Key': '53b8ecad31mshd3ead90d923490bp17852ajsnb678a1515e7c',
+            'X-RapidAPI-Key': 'ada19aed84mshe7a269ed4737e51p108edcjsn0b3063e0b099',
             'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
         };
     
@@ -189,7 +189,7 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
 
 
     return (
-        <div style={{ maxWidth: '900px'}}>
+        <div style={{ maxWidth: '1300px'}}>
             <div>
             <ExerciseFilterForm
                     selectedMuscle={exerciseFilters.Muscles}

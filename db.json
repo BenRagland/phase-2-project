@@ -1,43 +1,7 @@
 {
   "dietJournalEntries": [],
   "exerciseJournalEntries": [
-    {
-      "id": "07a3",
-      "exercise": "v",
-      "sets": "3",
-      "reps": "5",
-      "ampm": "",
-      "favorite": false,
-      "submitted": false,
-      "weight": "2"
-    },
-    {
-      "id": "ee78",
-      "exercise": "",
-      "sets": "",
-      "reps": "",
-      "ampm": "PM",
-      "favorite": false,
-      "submitted": false
-    },
-    {
-      "id": "0576",
-      "exercise": "",
-      "sets": "",
-      "reps": "",
-      "ampm": "",
-      "favorite": false,
-      "submitted": false
-    },
-    {
-      "id": "7351",
-      "exercise": "",
-      "sets": "",
-      "reps": "",
-      "ampm": "",
-      "favorite": false,
-      "submitted": false
-    },
+    
     {
       "id": "deec",
       "exercise": "",
@@ -46,38 +10,6 @@
       "ampm": "AM",
       "favorite": false,
       "submitted": false
-    },
-    {
-      "id": "981c",
-      "exercise": "",
-      "sets": "",
-      "reps": "",
-      "ampm": "AM",
-      "favorite": false,
-      "submitted": false,
-      "weight": "",
-      "timestamp": "2024-03-26T16:37:23.709Z"
-    },
-    {
-      "id": "b095",
-      "exercise": "",
-      "sets": "",
-      "reps": "2",
-      "ampm": "",
-      "favorite": false,
-      "submitted": false,
-      "timestamp": "2024-03-26T22:04:11.322Z"
-    },
-    {
-      "id": "2850",
-      "exercise": "",
-      "sets": "",
-      "reps": "",
-      "ampm": "",
-      "favorite": false,
-      "submitted": false,
-      "weight": "",
-      "timestamp": "2024-03-27T17:18:42.731Z"
     }
   ],
   "favorites": [

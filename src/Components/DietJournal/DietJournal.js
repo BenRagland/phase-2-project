@@ -6,6 +6,17 @@ function DietJournal() {
         const storedEntries = localStorage.getItem('dietEntries');
         return storedEntries ? JSON.parse(storedEntries) : Array.from({ length: 15 }, () => ({ meal: '', calories: '', category: '', favorite: false, period: 'AM', submitted: false }));
     });
+
+    // const [entries, setEntries ] = useState({
+    //     meal: '',
+    //      calories: '', 
+    //      category: '', 
+    //      favorite: false, 
+    //      period: 'AM',
+    //      submitted: false 
+    // })
+
+    console.log(entries, " entries state")
     const [allMeals, setAllMeals] = useState([]); // State to store all meals from the API
     const categories = ['Breakfast', 'Lunch', 'Dinner', 'Snack'];
 

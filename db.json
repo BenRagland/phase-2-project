@@ -1,16 +1,5 @@
 {
-  "dietJournalEntries": [
-    {
-      "meal": "french fries",
-      "calories": 400,
-      "category": "Lunch",
-      "favorite": false,
-      "period": "AM",
-      "submitted": false,
-      "dateStamp": "3/28/2024",
-      "id": "f729"
-    }
-  ],
+  "dietJournalEntries": [],
   "exerciseJournalEntries": [
     {
       "id": "07a3",
@@ -110,6 +99,24 @@
       "ampm": "AM",
       "submitted": false,
       "timestamp": "2024-03-26T16:01:28.123Z"
+    },
+    {
+      "id": "4a0e",
+      "exercise": "Tricep Pushdown",
+      "weight": "",
+      "sets": "",
+      "reps": "4",
+      "submitted": false,
+      "timestamp": "2024-03-28T18:55:07.091Z"
+    },
+    {
+      "id": "e811",
+      "exercise": "d",
+      "weight": "",
+      "sets": "",
+      "reps": "4",
+      "submitted": false,
+      "timestamp": "2024-03-28T19:02:20.149Z"
     }
   ],
   "favorites": []

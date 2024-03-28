@@ -130,7 +130,7 @@ function DietJournal() {
     }, [entries]);
 
     return (
-        <div style={{ maxWidth: '750px' }}>
+        <div className={styles.dietJournalContainer} style={{ maxWidth: '750px' }}>
             <h5 className={styles.title}> Diet Journal</h5> 
         
             <div style={{ maxHeight: '250px', overflowY: 'auto' }}>

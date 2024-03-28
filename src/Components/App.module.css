@@ -5,15 +5,15 @@
     /* max-width:100vw; */
     padding: 0 2.5em;
     border-radius: 17px;
-    border:solid 2px green;
+    border:solid 2px rgb(255, 172, 140);
 
 }
 .journalsContainer{
     display:flex;
     
-    
-    border:solid 2px red;
+    border:none;
     gap: 1em;
+    padding: 0 2em;
 }
 
 /* All Page Input Boxes */

@@ -1,7 +1,6 @@
 .foodCardContainer{
     display: inline-block;
-    background-color: rgb(208, 251, 208);
-    
+    background-color: rgb(255, 226, 226);
     padding: 1em;
     margin: 1em;
     border-radius: 12px;

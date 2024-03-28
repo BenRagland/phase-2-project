@@ -60,7 +60,7 @@ const App = () => {
 />
       <MealFilterForm onFilterChange={handleFilterChange} />
       <MealList mealFilters={mealFilters} />
-      <FoodCard>
+      <FoodCard/>
     </div>
   );
 }

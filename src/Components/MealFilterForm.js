@@ -20,48 +20,51 @@ function MealFilterForm() {
     const healthOptions = ['dairy-free', 'egg-free', 'gluten-free', 'keto-friendly', 'low-sugar', 'peanut-free', 'vegan', 'vegetarian'];
     console.log(recipes, "line 21 recipes")
 
-    useEffect(() => {
-        const fetchRecipes = async () => {
-            try {
-                const paramsObject = {
-                    type: 'any',
-                    beta: true,
-                    q: searchTerm,
-                    app_id: APP_ID,
-                    app_key: APP_KEY,
-                    ...(calorieMin && { calories: `${calorieMin}-${calorieMax}` }),
-                    ...(selectedMealType && { mealType: selectedMealType }),
-                    ...(selectedCuisineType && { cuisineType: selectedCuisineType }),
-                    ...(selectedDiet && { diet: selectedDiet }),
-                    ...(selectedHealth && { health: selectedHealth })
-                };
-        
-                const params = []
-        
-                for (const [label, value] of Object.entries(paramsObject)) {
-                    params.push(`${label}=${value}`)
-                }
-
-                const fetchUrl = `https://api.edamam.com/api/recipes/v2?${params.join('&')}`;
-        
-                fetch(fetchUrl)
-                .then( res => {
-                        return res.json()
-                })
-                .then( data => {
-                    setRecipes(data.hits);
-                    console.log("Fetched recipes:", data.hits);
-                })
-        
-            } catch (error) {
-                console.error('Fetch error:', error);
+    const fetchRecipes = async () => {
+        try {
+            const paramsObject = {
+                type: 'any',
+                beta: true,
+                q: searchTerm,
+                app_id: APP_ID,
+                app_key: APP_KEY,
+                ...(calorieMin && { calories: `${calorieMin}-${calorieMax}` }),
+                ...(selectedMealType && { mealType: selectedMealType }),
+                ...(selectedCuisineType && { cuisineType: selectedCuisineType }),
+                ...(selectedDiet && { diet: selectedDiet }),
+                ...(selectedHealth && { health: selectedHealth })
+            };
+    
+            const params = []
+    
+            for (const [label, value] of Object.entries(paramsObject)) {
+                params.push(`${label}=${value}`)
             }
-        };
+
+            const fetchUrl = `https://api.edamam.com/api/recipes/v2?${params.join('&')}`;
+    
+            fetch(fetchUrl)
+            .then( res => {
+                    return res.json()
+            })
+            .then( data => {
+                setRecipes(data.hits);
+                console.log("Fetched recipes:", data.hits);
+            })
+    
+        } catch (error) {
+            console.error('Fetch error:', error);
+        }
+    };
+
+    // useEffect(() => {
         
-        fetchRecipes();
-    }, [searchTerm, calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth]);
+        
+    //     fetchRecipes();
+    // }, [searchTerm, calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth]);
 
     const handleSubmit = (e) => {
+        fetchRecipes();
         e.preventDefault();
         console.log("Filters submitted:", { calorieMin, calorieMax, selectedMealType, selectedCuisineType, selectedDiet, selectedHealth });
     };

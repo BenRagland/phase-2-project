@@ -1,13 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./ExerciseJournal.module.css";
 
 function ExerciseJournal() {
     const [entry, setEntry] = useState({ exercise: '', weight: '', sets: '', reps: '', ampm: 'AM', submitted: false });
     const [submittedEntries, setSubmittedEntries] = useState([]);
+    const [workoutNames, setWorkoutNames] = useState([]);
+    const [filteredWorkoutNames, setFilteredWorkoutNames] = useState([]);
 
+    useEffect(() => {
+        fetchWorkoutNames();
+    }, []);
+
+    const fetchWorkoutNames = async () => {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'ada19aed84mshe7a269ed4737e51p108edcjsn0b3063e0b099',
+                'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
+            }
+        };
+    
+        try {
+            const response = await fetch('https://work-out-api1.p.rapidapi.com/search', options);
+            if (!response.ok) {
+                throw new Error('Failed to fetch workout names');
+            }
+            const data = await response.json();
+            const names = data.map(item => item.WorkOut);
+            setWorkoutNames(names);
+        } catch (error) {
+            console.error('Error fetching workout names:', error.message);
+        }
+    };
     const handleEntryChange = (event) => {
         const { name, value } = event.target;
         setEntry({ ...entry, [name]: value });
+
+        // Filter workout names based on user input
+        const filtered = workoutNames.filter(name => name.toLowerCase().includes(value.toLowerCase()));
+        setFilteredWorkoutNames(filtered);
     };
 
     const handleSubmitEntry = () => {
@@ -49,7 +80,13 @@ function ExerciseJournal() {
                                     name="exercise"
                                     value={entry.exercise}
                                     onChange={handleEntryChange}
+                                    list="workoutNames"
                                 />
+                                <datalist id="workoutNames">
+                                    {filteredWorkoutNames.map((name, index) => (
+                                        <option key={index} value={name} />
+                                    ))}
+                                </datalist>
                             </td>
 
                             <td style={{ padding: '5px' }}>

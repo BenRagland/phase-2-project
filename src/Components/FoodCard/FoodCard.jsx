@@ -17,6 +17,11 @@ const FoodCard = ({recipeObj}) => {
         <p>calories : " "</p>
         <p>Diet : " "</p>
         <p>Cuisine : " "</p>
+        {/* <img src = {props.recipe.image} />
+                <h2>{props.recipe.label}</h2>
+                <h3>{props.recipe.dietLabels}</h3>
+                <h3>{props.recipe.healthLabels}</h3>
+                <h3>{props.recipe.cuisineType}</h3> */}
     </div>
 
 

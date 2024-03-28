@@ -189,7 +189,7 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
 
 
     return (
-        <div style={{ maxWidth: '1300px'}}>
+        <div style={{ maxWidth: '1360px'}}>
             <div>
             <ExerciseFilterForm
                     selectedMuscle={exerciseFilters.Muscles}
@@ -205,7 +205,6 @@ function ExerciseList({ onSubmit, exerciseFilters, setExerciseFilters }) {
                         onChange={handleSearchChange} 
                     />
                     <button onClick={handleFavorites}>Favorites</button>
-                    <button onClick={handleTodaysItems}>Today's Items</button>
                     <button onClick={handleRandomExercises}>Random Exercises</button>
                 </p>
             </div>

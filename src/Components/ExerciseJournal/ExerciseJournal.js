@@ -87,36 +87,39 @@ function ExerciseJournal() {
                     </tbody>
                 </table>
             </div>
-            <h5>Today's Exercises</h5>
-            <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>
-                    <thead>
-                        <tr>
-                            <th style={{ padding: '5px' }}>Exercise</th>
-                            <th style={{ padding: '5px', maxWidth: '25px' }}>Weight</th>
-                            <th style={{ padding: '5px', maxWidth: '25px' }}>Sets</th>
-                            <th style={{ padding: '5px', width: '15px' }}>Reps</th>
-                            <th style={{ padding: '5px' }}></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredSubmittedEntries.map((entry, index) => (
-                            <tr key={index}>
-                                <td style={{ padding: '5px' }}>{entry.exercise}</td>
-                                <td style={{ padding: '5px' }}>{entry.weight}</td>
-                                <td style={{ padding: '5px' }}>{entry.sets}</td>
-                                <td style={{ padding: '5px' }}>{entry.reps}</td>
-                                <td style={{ padding: '5px' }}>
-                                    <button onClick={() => handleRemoveEntry(index)}>X</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            {filteredSubmittedEntries.length > 0 && (
+                <>
+                    <h5>Today's Exercises</h5>
+                    <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', borderSpacing: '0' }}>
+                            <thead>
+                                <tr>
+                                    <th style={{ padding: '5px' }}>Exercise</th>
+                                    <th style={{ padding: '5px', maxWidth: '25px' }}>Weight</th>
+                                    <th style={{ padding: '5px', maxWidth: '25px' }}>Sets</th>
+                                    <th style={{ padding: '5px', width: '15px' }}>Reps</th>
+                                    <th style={{ padding: '5px' }}></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredSubmittedEntries.map((entry, index) => (
+                                    <tr key={index}>
+                                        <td style={{ padding: '5px' }}>{entry.exercise}</td>
+                                        <td style={{ padding: '5px' }}>{entry.weight}</td>
+                                        <td style={{ padding: '5px' }}>{entry.sets}</td>
+                                        <td style={{ padding: '5px' }}>{entry.reps}</td>
+                                        <td style={{ padding: '5px' }}>
+                                            <button onClick={() => handleRemoveEntry(index)}>X</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
+            )}
         </div>
     );
 }
 
 export default ExerciseJournal;
-

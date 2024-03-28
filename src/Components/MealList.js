@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import MealCard from './MealCard';
-import MealFilterForm from './MealFilterForm';
-import FoodCard from "./FoodCard/FoodCard"
+import MealFilterForm from './MealFilterForm/MealFilterForm';
 
 //Added FootTile component, which generates in MealFilterForm JSX
 function MealList() {
@@ -47,7 +46,7 @@ function MealList() {
     return (
         <div style={{ maxWidth: '900px' }}>
             {/* Favorites and Find Random Meal Search  */}
-            
+
             {/* <div>
               <p>  <input
                     type="text"

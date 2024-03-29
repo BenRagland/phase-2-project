@@ -30,8 +30,9 @@ function ExerciseCard({ exercise, isFavorite, onToggleFavorite }) {
                 >
                     &#9733;
                 </button>
-                {/* Link to the detailed information page */}
+                <nav>
                 <Link to={`/exercise/${exercise.WorkOut}`}>{exercise.WorkOut}</Link>
+                </nav>
                 <p style={{ lineHeight: '.5'}}>Beg: {exercise['Beginner Sets']}</p>
                 <p style={{ lineHeight: '.5'}}>Int: {exercise['Intermediate Sets']}</p>
                 <p style={{ lineHeight: '.5'}}>Exp: {exercise['Expert Sets']}</p>

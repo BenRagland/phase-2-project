@@ -28,9 +28,13 @@ const router = createBrowserRouter([
 
 createRoot(root).render(
   <Router>
-    <App />
-    <Switch>
-          <Route path="/exercise/:workoutName" component={ExerciseDetailPage} />
-    </Switch>
+    <Navigate>
+        <Route path="/FoodProduct" element={FoodProduct} />
+        <Route path="/exercise/:workoutName" >
+               <ExerciseDetailPage /> 
+
+        </Route>
+        <Route path="/" element={<App />} />
+    </Navigate>
   </Router>
 );

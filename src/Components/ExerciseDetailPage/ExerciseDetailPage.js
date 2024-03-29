@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 function ExerciseDetailPage() {
   const { workoutName } = useParams(); // Get the workoutName from the URL params
   const [exerciseDetails, setExerciseDetails] = useState(null);
+  console.log(workoutName)
 
   useEffect(() => {
     // Fetch exercise details based on the workoutName

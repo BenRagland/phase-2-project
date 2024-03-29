@@ -83,7 +83,6 @@ const App = () => {
         />
         <MealFilterForm onFilterChange={handleFilterChange} />
         <MealList />
-        {/* Define route for ExerciseDetailPage */}
         
       </div>
       
